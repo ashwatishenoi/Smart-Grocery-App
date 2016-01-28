@@ -1,0 +1,26 @@
+<div class="main" id="main_page">
+<div class="no_bg">
+    <div class="log">
+        <p>REGISTRATION</p>
+    </div>
+    <p class="required_cls">* Required Fields</p>
+    <label class="username">E-mail(username):<span class="required">*</span></label><br/>
+	{{#if isEmailInvalid}}
+	<p class="nomatch">*Enter a valid email id</p> 
+	{{/if}}
+    {{input type="text" value=user_id id="user_id" placeholder="Enter Username"}}<br/>
+    <label class="confirm_name">Confirm email:<span class="required">*</span></label><br/>
+	{{#if usrNotMatch}}
+	<p class="nomatch">*Email entered does not match</p> 
+	{{/if}}
+    {{input type="text" value=confirm_id id="cnfrmid" placeholder="Re-enter Username"}}<br/>
+    <label class="password_reg">Password:<span class="required">*</span></label><br/>
+    {{input type="password" value=password id="pswd_reg" placeholder="Enter Password"}}<br/>
+    <label class="confirm_pswd">Confirm Password:<span class="required">*</span></label><br/>
+	{{#if pswdNotMatch}}
+	<p class="nomatch">*Passwords don't match</p> 
+	{{/if}}
+    {{input type="password" value=confirm_pswd id="cnfrm_pswd" placeholder="Re-enter Password"}}<br/>
+    <button {{action 'AddUser'}} class="reg_btn">Register</button>
+</div>
+</div>

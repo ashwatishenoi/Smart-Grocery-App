@@ -1,0 +1,27 @@
+<div class="main" id="main_page">
+<table class="recent_search">
+    <tr>
+        <td class="recSearch"> My Recent Searches</td>
+    </tr>
+</table>
+
+<div class="srch_result" id="srch_output">
+    <ul class="list_chg" id="list_of_items">
+        {{#each}}
+            <li class="list_chg" id="list_product">
+                <a href="#" class="anchor_view" {{action 'loadSearch' product_name zipcode store_name}}>
+                    <div class="bg_list prd_list">
+                        <h3>Product: {{product_name}}  </h3>
+                        <h1>Zip Code:  {{zipcode}}</h1>
+                        <h2>Store:  {{store_name}}  </h2>
+
+                    </div>
+                </a>
+            </li>
+        {{/each}}
+    </ul>
+	<div class="buttondiv">
+		{{#link-to "/"}}<button class="backbtn" id="cartBack">Back</button>{{/link-to}}
+	</div>
+</div>
+</div>

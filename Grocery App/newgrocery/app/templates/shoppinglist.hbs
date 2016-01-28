@@ -1,0 +1,46 @@
+<div class="main" id="main_page">
+
+        <label class="sort">Sort By:</label> 
+        {{view Ember.Select
+               content=sortOptions
+               optionValuePath="content.value"
+               optionLabelPath="content.label"
+               selection=selectedSortOption}}
+
+<div class="srch_result" id="srch_output">
+
+    <ul class="list_chg" id="list_of_items">
+        {{#each item in controller}}
+            <li class="list_chg" id="list_product">
+                <a href="#" class="anchor_view">
+                   <div class="bg_list prd_list">
+						<div {{bind-attr class="item.lowestPrice"}}>
+						{{input type="checkbox" name="product" checked=item.isSelected class="cartCheck"}}
+                        <h3> {{item.store_name}}</h3>
+                        <h1 {{bind-attr class="item.isOutofstock" }}> {{item.availability}}  </h1>
+                        <h2> {{item.price}}  </h2>
+                        {{debugger}}
+                         <img {{action 'showMap' item.store_location}} src ="assets/images/mapmarker.png" class="img_on_map">
+						 <h4 {{action 'toggle_map'}} >
+              {{#if isDistance}}
+                {{item.store_distance}} mi
+              {{else}}
+                 {{item.store_duration}} min
+                {{/if}} 
+             </h4>
+					</div>
+                    </div>					
+                </a>
+            </li>
+        {{/each}}
+    </ul>
+	<div class="buttondiv">
+		{{#if login}}
+		<button class="addCartBtn" {{action "addToCart"}}>Add to Cart</button>
+		{{/if}}
+        {{#link-to '/'}}<button class="backbtn">Back</button>{{/link-to}}
+	</div>
+</div>
+
+</div>
+

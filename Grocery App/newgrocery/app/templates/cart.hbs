@@ -1,0 +1,30 @@
+<div class="main" id="main_page">
+
+<div class="srch_result" id="srch_output">
+	<button class="removeAllbtn" {{action "removeAllItems"}}>Empty Cart</button>
+	<button class="removeSelbtn" {{action "removeSelectedItems"}}>Remove Selected</button>
+	<button class="savePDF" {{action "savePDF"}}>Save as PDF</button>
+    <ul class="list_chg" id="list_of_items">
+		
+        {{#each item in controller}}
+		{{log item}}
+            <li class="list_chg" id="list_cart">
+                <a href="#" class="anchor_view">
+                   <div class="bg_list prd_list">			
+					   {{input type="checkbox" name="product" checked=item.isSelected class="cartCheck"}}	   
+                        <h3> {{item.product_name}}-{{item.store_name}}</h3>
+                        <h1> {{item.availability}}  </h1>
+                        <h2> {{item.price}}  </h2>
+					</div>					
+                </a>
+            </li>
+        {{/each}}
+    </ul>
+	<div class="buttondiv">
+		{{#link-to "/"}}<button class="backbtn" id="cartBack">Home</button>{{/link-to}}
+		{{#if isSearchAvailable}}
+		{{#link-to "shoppinglist"}}<button class="backbtn">Back to Results</button>{{/link-to}}
+		{{/if}}
+	</div>
+</div>
+</div>

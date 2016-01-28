@@ -1,0 +1,57 @@
+<div id="main_page" class="main">
+    <div class="search_page">
+        {{#if isLogin}}
+       <table class="div_login">
+         <tr>
+             <td class="img_width"><img src ="assets/images/user.png" class="user_symbol"></td>
+             <td class="welcome_user"> Welcome, {{userName}}!</td>
+             
+         </tr>
+       </table>
+        {{/if}}
+		
+        <label class="zip_cls">Zipcode: </label>		
+        {{input value=zip_code placeholder="Enter Zipcode" class="search"}}<br/>
+		{{#if isZipInvalid}}
+		<p class="invalid">*Please enter a valid zipcode</p>				
+		{{/if}}
+
+        <label class="prd_cls"> Product Name: </label>
+        {{view Ember.Select
+          content=productOptions
+          optionValuePath="content.value"
+          optionLabelPath="content.label"
+          selection=selectedproduct
+          class="dropdown"
+          value=product
+          prompt="Please select a Product.."}}
+        <br/>
+		{{#if isProdInvalid}}
+		<p class="invalid">*Please select a product from the list</p>
+		{{/if}}
+
+
+        <label class="store">Store: </label>
+        {{view Ember.Select
+        content=storeOptions
+        optionValuePath="content.value"
+        optionLabelPath="content.label"
+        selection=selectedstore
+        class="dropdown"
+        value=store
+        prompt="Please select a Store.."}}
+        <br/>
+		{{#if isStoreInvalid}}
+		<p class="invalid">*Please select a store from the list</p>
+		{{/if}}
+        <span>
+	   <button {{action 'search'}} class="search_btn">Search</button><br/>
+        {{#if isLogin}}
+         <button {{action 'findSavedSearches'}} class="saved_search_btn">Saved Searches</button>
+         <button {{action 'savecurrentSearch'}} class="current_search">Save current Search</button>
+        {{/if}}
+        </span>
+    </div>
+</div>
+
+

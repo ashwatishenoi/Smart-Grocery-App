@@ -1,0 +1,28 @@
+  <header class="titlebar">
+
+    <ul>
+		<li id="menu"><a {{action 'toggleMenu'}}>☰</a></li>
+		<li id="title">Grocery Smart</li>
+	    <li id="cart">
+			{{#link-to 'cart'}}<div class="cartcounter">{{cartCounter}}</div><img class="cart" src="assets/images/cart3.png">{{/link-to}}
+		</li>
+	</ul>
+
+  </header>
+  
+{{#if isShowMenu}}
+
+<ul class="navigation" id="nav_menu">
+    <li class="nav-item"><a {{action 'goHome'}}>Home</a></li>
+	<li class="nav-item">{{#link-to 'account'}}Log In{{/link-to}}</li>
+	<li class="nav-item">{{#link-to 'help'}}Help{{/link-to}}</li>
+	<li class="nav-item">{{#link-to 'support'}}Support{{/link-to}}</li>
+    {{#if isLogin}}
+    <li class="nav-item"><a {{action 'logout'}}>Log Out</a></li>
+    {{/if}}
+</ul>
+
+{{/if}}
+  
+  
+{{outlet}}

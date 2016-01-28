@@ -1,0 +1,16 @@
+<div class="main" id="main_page">
+<div class="success_page">
+ {{log isSuccess}}
+  {{#if isSuccess}}
+    <p class="suc_msg">
+        <img src ="assets/images/reg_success.JPG" class="success_symbol">
+        Thank You! <br/> You have successfully Registered.</p> <br/>
+    {{#link-to 'account' class="btn_login"}} Click here to Login {{/link-to}}
+
+  {{else}}
+    <p class="suc_msg"> <img src ="assets/images/sad_face.JPG" class="fail_symbol">
+       <br/> Registration can not be done at this time, please try after sometime.</p>
+    {{/if}}
+
+</div>
+    </div>

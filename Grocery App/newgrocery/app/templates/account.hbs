@@ -1,0 +1,21 @@
+	<div class="main" id="main_page">
+		<div class="login_page">
+			<div class="log">
+				<p>LOG IN</p>
+			</div>
+			<div class="user_details">
+			<label class="username">Username:</label><br/>
+			{{input type="text" value=user_id id="user_id" placeholder="Enter your email or username"}}<br/>
+			<label class="password">Password:</label><br/>
+			{{input type="password" value=password id="pswd" placeholder="Enter your password"}}<br/>
+			{{#if isLoginInvalid}}
+			<p class=nomatch>*The email or password you entered is incorrect</p>
+			{{/if}}
+		    <button {{action 'Login'}} class="login_btn">Log In</button>
+			</div>
+			{{#link-to 'register'}}<p class="register">New User?</p>{{/link-to}}
+		
+		</div>
+
+	</div>
+
